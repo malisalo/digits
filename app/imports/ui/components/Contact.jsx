@@ -1,26 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListContacts.jsx. */
 const Contact = ({ contact }) => (
   <Card>
     <Card.Header>
       <Image src={contact.image} width={75} />
-      <Card.Title>{contact.firstname} {contact.lastname}</Card.Title>
+      <Card.Title>{contact.firstName} {contact.lastName}</Card.Title>
       <Card.Subtitle>{contact.address}</Card.Subtitle>
-      <Card.Body>
-        <Card.Text>{contact.description}</Card.Text>
-      </Card.Body>
     </Card.Header>
+    <Card.Body>
+      <Card.Text>{contact.description}</Card.Text>
+      <Link to={`/edit/${contact._id}`}>Edit</Link>
+    </Card.Body>
   </Card>
 );
 
 // Require a document to be passed to this component.
 Contact.propTypes = {
   contact: PropTypes.shape({
-    firstname: PropTypes.string,
-    lastname: PropTypes.string,
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
     address: PropTypes.string,
     description: PropTypes.string,
     condition: PropTypes.string,
