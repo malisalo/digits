@@ -1,4 +1,3 @@
-theme: minima
 <img src="doc/LandingPage.png">
 
 <h1>Digits-Semantic-UI</h1>
